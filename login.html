@@ -14,19 +14,19 @@
   <title>翁卡克MUISC</title>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
-<script src='js/NAV.js'></script>
+
 <body>
   <nav class="header">
     <!--LOGO-->
     <div class="logo">
-      <a href="/"><img src="../images/LOGO.png"></a>
+      <a href="/"><img src="images/LOGO.png"></a>
     </div>
     <!--LOGO/-->
 
     <!--選單-->
     <div id="#menu">
       <ul class="menu">
-        <form class="searchbag" action="/OGKM/store.jsp" method="GET">
+        <form class="searchbag" action="store.html" method="GET">
           <input type="search" name="keyword" placeholder="SEARCH" value=""> <input type="submit" value="搜尋">
         </form>
         <li><a href="/"><i class="fas fa-home"></i>
@@ -75,7 +75,6 @@
       <a href="#" id="burger"><i class="fas fa-bars"></i></a>
     </div>
   </nav>
-
   <div class="content">
     <div class="content1">
       <!--包裝-->
@@ -85,7 +84,7 @@
       <div class="loginBag">
         <!--包裝-->
         <!--登入資料-->
-        <form id="login" method="GET" action="/">
+        <form id="login" method="GET" action="loginok.html">
           <img src="images/LOGO.png" class="logologin ">
           <legend class="loginlog">會員登入</legend>
           <div class="Package">
@@ -358,7 +357,7 @@
 
     /*登入系統 END*/
   </style>
-  
+  <script src='js/NAV.js'></script>
   <script>
     function refreshCaptchapng() {
       //alert("refresh captcha");//測試

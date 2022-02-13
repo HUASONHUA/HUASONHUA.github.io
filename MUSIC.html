@@ -8,7 +8,7 @@
 	<script src="https://kit.fontawesome.com/14c95c3413.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="css/NAV.css">
 </head>
-<script src='js/NAV.js'></script>
+
 <body>
 	<nav class="header">
 		<!--LOGO-->
@@ -16,51 +16,54 @@
 			<a href="/"><img src="images/LOGO.png"></a>
 		</div>
 		<!--LOGO/-->
-	
+
 		<!--選單-->
 		<div id="#menu">
 			<ul class="menu">
-				<form class="searchbag" action="/OGKM/store.jsp" method="GET">
-					<input type="search" name="keyword" placeholder="SEARCH"
-						value=""> <input type="submit" value="搜尋">
+				<form class="searchbag" action="store.html" method="GET">
+					<input type="search" name="keyword" placeholder="SEARCH" value=""> <input type="submit" value="搜尋">
 				</form>
 				<li><a href="/"><i class="fas fa-home"></i>
-						<p>首頁</p> </a></li>
+						<p>首頁</p>
+					</a></li>
 				<li><a href="store.html">
-				<i class="fas fa-archive"></i>
-						<p>商店</p> </a></li>
-				<li><a href="register.html"><i
-						class="fas fa-edit"></i>
-						<p>註冊</p> </a></li>
+						<i class="fas fa-archive"></i>
+						<p>商店</p>
+					</a></li>
+				<li><a href="register.html"><i class="fas fa-edit"></i>
+						<p>註冊</p>
+					</a></li>
 				<!--未登入出現-->
-			
-				<li><a href="../login.html"><i
-						class="fas fa-sign-in-alt"></i>
-						<p>登入</p> </a></li>	
+
+				<li><a href="../login.html"><i class="fas fa-sign-in-alt"></i>
+						<p>登入</p>
+					</a></li>
 				<!--登入出現-->
-			
-				<li><a href="#"><i
-						class="fas fa-sign-out-alt"></i>
-						<p>登出</p> </a></li>
-				
+
+				<li><a href="#"><i class="fas fa-sign-out-alt"></i>
+						<p>登出</p>
+					</a></li>
+
 				<li><a href="member.html"><i class="fas fa-user"></i>
-						<p class="username">用戶</p></a></li>
+						<p class="username">用戶</p>
+					</a></li>
 				<!--登入出現-->
-				
+
 				<li><a href="cart.html">
-				<i class="fas fa-cart-arrow-down"></i>
-				<span class='cartQty'></span>
-				<p>購物車</p> </a></li>
-						
-			
-				<li class="lastli"><a href="MUSIC.html"><i
-				class="fas fa-headphones-alt"></i>
-				<p>線上聽</p> </a></li>
-				<li class="lastli"><a href="#ABUS"><i
-						class="fas fa-exclamation-circle"></i>
-						<p>關於</p> </a>
-						</li>
-<!-- 				<a href="#" class="burgerclose"><i class="fas fa-times"></i></a> -->
+						<i class="fas fa-cart-arrow-down"></i>
+						<span class='cartQty'></span>
+						<p>購物車</p>
+					</a></li>
+
+
+				<li class="lastli"><a href="MUSIC.html"><i class="fas fa-headphones-alt"></i>
+						<p>線上聽</p>
+					</a></li>
+				<li class="lastli"><a href="#ABUS"><i class="fas fa-exclamation-circle"></i>
+						<p>關於</p>
+					</a>
+				</li>
+				<!-- 				<a href="#" class="burgerclose"><i class="fas fa-times"></i></a> -->
 			</ul>
 			<!--漢堡-->
 			<a href="#" id="burger"><i class="fas fa-bars"></i></a>
@@ -175,9 +178,7 @@
 			font-size: 1.5em;
 			text-align: center;
 			width: 2em;
-			background: no-repeat linear-gradient(
-45deg
-, #757575 30%, #a7a7a7 70%);
+			background: no-repeat linear-gradient(45deg, #757575 30%, #a7a7a7 70%);
 			position: relative;
 			height: 5.5em;
 			color: rgb(236, 235, 235);
@@ -509,7 +510,7 @@
 			}
 		}
 	</style>
-
+	<script src='js/NAV.js'></script>
 	<script>
 
 		$(document).ready(init);
@@ -622,8 +623,6 @@
 		var audiovisual = $("#audiovisual")[0];
 
 		function seekAudioTime() {
-			//lert($("#seekAudioTime").val());
-			//seekAudioTime的值=音樂播放的時間
 			audiovisual.currentTime = $("#seekAudioTime").val();
 		}
 		var toggle = true;
@@ -639,39 +638,29 @@
 		}
 
 		function prevBtnHandler() {
-			//alert("上一首");
-			//向左轉90度
 			rotateY -= -90;
-			//上一首音樂
 			thismusic--;
-			//第一首時上一首按鈕關閉
 			if (thismusic == 1) {
 				$("#prevBtn").off("click", prevBtnHandler);
 				$("#prevBtn").css("opacity", "0.2");
 				$('#prevBtn').css('cursor', 'default');
 			}
-			//下一首按鈕關閉時變開啟
 			if ($("#nextBtn").css("opacity") == 0.2) {
 				$("#nextBtn").on("click", nextBtnHandler);
 				$("#nextBtn").css("opacity", "1");
 				$('#nextBtn').css('cursor', 'pointer');
 			}
-			//操控第幾面
 			if (index > 0) {
 				index--;
 			} else {
 				index = 3;
 			}
-			//換成上一首歌路徑
 			$('#audiovisual').attr("src", songdata[thismusic].src);
-			//按上一首自動撥放
 			if (audiovisual.paused) {
 				PlayPauseHandler();
 			}
 			audiovisual.autoplay;
-			//所有changemuisc播放按鈕圖變三角形
 			$(".changemuisc img").attr("src", "images/audio/play1.png");
-			//立體方塊圖片轉換
 			if (index == 0) {
 				$("#imageslider ul li").children().eq(0).attr("src", songdata[thismusic].photo);
 				$("#imageslider ul li").children().eq(1).attr("src", songdata[thismusic + 1].photo);
@@ -694,48 +683,36 @@
 				$("#imageslider ul li").children().eq(2).attr("src", songdata[thismusic - 1].photo);
 				$("#imageslider ul li").children().eq(3).attr("src", songdata[thismusic].photo);
 			}
-			//立體方塊轉角度
 			$("#imageslider ul").css({
 				"transform": "rotateY(" + rotateY + "deg)"
 			});
-			//按上一首透明度關閉
 			$("#imageslider").toggleClass("transparency", false);
 		}
 
 		function nextBtnHandler() {
-			//alert("下一首");
-			//向右轉90度
 			rotateY -= 90;
-			//下一首音樂
 			thismusic++;
-			//最後一首時下一首按鈕關閉
 			if (thismusic == (songdata.length - 3)) {
 				$("#nextBtn").off("click", nextBtnHandler);
 				$("#nextBtn").css("opacity", "0.2");
 				$('#nextBtn').css('cursor', 'default');
 			}
-			//上一首按鈕關閉時變開啟
 			if ($("#prevBtn").css("opacity") == 0.2) {
 				$("#prevBtn").on("click", prevBtnHandler);
 				$("#prevBtn").css("opacity", "1");
 				$('#prevBtn').css('cursor', 'pointer');
 			}
-			//操控第幾面
 			if (index < 3) {
 				index++;
 			} else {
 				index = 0;
 			}
-			//換成下一首歌路徑
 			$('#audiovisual').attr("src", songdata[thismusic].src);
-			//按下一首自動撥放
 			if (audiovisual.paused) {
 				PlayPauseHandler();
 			}
 			audiovisual.autoplay;
-			//所有changemuisc播放按鈕圖變三角形
 			$(".changemuisc img").attr("src", "images/audio/play1.png");
-			//立體方塊圖片轉換
 			if (index == 0) {
 				$("#imageslider ul li").children().eq(0).attr("src", songdata[thismusic].photo);
 				$("#imageslider ul li").children().eq(1).attr("src", songdata[thismusic + 1].photo);
@@ -757,21 +734,15 @@
 				$("#imageslider ul li").children().eq(2).attr("src", songdata[thismusic - 1].photo);
 				$("#imageslider ul li").children().eq(3).attr("src", songdata[thismusic].photo);
 			}
-			//立體方塊轉角度
 			$("#imageslider ul").css({
 				"transform": "rotateY(" + rotateY + "deg)"
 			});
-			//按下一首透明度關閉
 			$("#imageslider").toggleClass("transparency", false);
 		}
 
 		function Achangemuisc(themusic) {
-			//alert($(themusic).attr('songcolumnindex'));
-			//指定為第songcolumnindex首歌
 			thismusic = $(themusic).attr('songcolumnindex');
-			//角度=這首歌乘-90度
 			rotateY = thismusic * -90;
-			//算立體方塊的值
 			if ((rotateY / 90) % 4 == 0) {
 				index = 0;
 			} else if ((rotateY / 90) % 4 == -1) {
@@ -783,7 +754,6 @@
 					index = 3;
 				}
 			}
-			//上下一首按鈕關閉時變開啟
 			if ($("#prevBtn").css("opacity") == 0.2) {
 				$("#prevBtn").on("click", prevBtnHandler);
 				$("#prevBtn").css("opacity", "1");
@@ -799,8 +769,6 @@
 			//$("#imageslider ul").css({
 			//	"transform": "rotateY(" + rotateY + "deg)"
 			//});
-
-			//第一首或最後一首時按鈕關閉
 			if (thismusic == 1) {
 				$("#prevBtn").off("click", prevBtnHandler);
 				$("#prevBtn").css("opacity", "0.2");
@@ -812,22 +780,15 @@
 					$('#nextBtn').css('cursor', 'default');
 				}
 			}
-			//播放按鈕圖變||
 			$("#playBtn img").attr("src", "images/audio/play1.png");
-			//換成這首圖片
 			$("#imageslider ul li").children().attr("src", $(themusic).attr('data-photo'));
-			//換成這首音樂路徑
 			$('#audiovisual').attr("src", $(themusic).attr('data-src'));
-			//按這首透明度關閉
 			$("#imageslider").toggleClass("transparency", false);
-			//播放音樂
 			PlayPauseHandler();
 		}
 
 		function Achangeing(theimg) {
-			//其他changemuisc播放按鈕圖變三角形
 			$(".changemuisc img").attr("src", "images/audio/play1.png");
-			//changemuisc播放按鈕圖變||
 			$(theimg).attr("src", "images/audio/pause.png");
 		}
 
@@ -835,76 +796,47 @@
 			$("#imageslider").toggleClass("transparency");
 		});
 
-		function init() {//
+		function init() {
 			$("#songBanner .rightside").click(toggleHandler);
-			//上一首按鈕初始狀態為關閉
 			if (rotateY == 0) {
 				$("#prevBtn").off("click", prevBtnHandler);
 				$("#prevBtn").css("opacity", "0.2");
 				$('#prevBtn').css('cursor', 'default');
 			}
 			//$("#prevBtn").click(prevBtnHandler);
-			//下一首按鈕開關
 			$("#nextBtn").click(nextBtnHandler);
-			//轉動速度
 			$('#imageslider ul').css('transition-duration', '0.7s');
-			//audiovisual初值為第一首
 			$('#audiovisual').attr("src", songdata[1].src);
-			//playAudioTime初值為第一首歌名
 			$("#playAudioTime").text(songdata[1].name);
-			//imageslider ul li 第一面初值第一首歌圖
 			$("#imageslider ul li").children().eq(0).attr("src", songdata[thismusic].photo);
-			//imageslider ul li 第二面初值第二首歌圖
 			$("#imageslider ul li").children().eq(1).attr("src", songdata[thismusic + 1].photo);
-			//imageslider ul li 第三面初值第三首歌圖
 			$("#imageslider ul li").children().eq(2).attr("src", songdata[thismusic + 2].photo);
-			//imageslider ul li 第四面初值第四首歌圖
 			$("#imageslider ul li").children().eq(3).attr("src", songdata[thismusic + 3].photo);
-			//循環播放開關
 			$("#loopBtn").click(LoopHandler);
-			//設定seekAudioTime初值
 			$("#seekAudioTime").val(0);
-			//設定音量滑條初值
 			$('#audiovisual').prop("volume", ($("#volumerange").val() / 100));
-			//撥放按鈕開關
 			$("#playBtn").click(PlayPauseHandler);
-			//音量滑條操控
 			$("#volumerange").click(volumeUpDownHandler);
-			//靜音按鈕
 			$("#volumeBtn").click(volumeMuted);
 			// $("#audiovisual").on("timeupdate", timeUpdate);
-			//播放時啟動方法
 			$("#audiovisual").on("play", startPlayHandler);
-			//暫停時啟動方法
 			$("#audiovisual").on("pause", stopPlayHandler);
-			//結束時啟動方法
 			$("#audiovisual").on("ended", endedPlay);
-
 		}
 
 		function PlayPauseHandler() {
 			if (audiovisual.paused) {
-				//alert("播放");
-				//audiovisual.currentTime = 0;
-				//音樂播放
 				audiovisual.play();
-				//播放按鈕圖變||
 				$("#playBtn img").attr("src", "images/audio/pause.png");
-				//播放時啟用timeUpdate方法
 				$("#audiovisual").on("timeupdate", timeUpdate);
 			} else {
-				//alert("暫停");
-				//暫停時播放按鈕圖變三角形
 				$("#playBtn img").attr("src", "images/audio/play1.png");
-				//暫停時changemuisc播放按鈕圖變三角形
 				$(".changemuisc img").attr("src", "images/audio/play1.png");
-				//音樂暫停
 				audiovisual.pause();
 			}
 		}
 
 		function LoopHandler() {
-			//切換循環開關
 			if ($("#loopBtn").attr("data-control") == "auto") {
 				$("#loopBtn img").attr("src", "images/audio/loop1.png");
 				$("#loopBtn").attr("data-control", "loop");
@@ -917,36 +849,24 @@
 		}
 
 		function volumeMuted() {
-			//alert("靜音");
-			//點擊靜音
 			audiovisual.muted = true;
-			//聲音滑條值變0
 			$("#volumerange").val(0);
-			//換成靜音圖
 			$("#volumeBtn img").attr("src", "images/audio/muted.png");
 		}
 
 		function startPlayHandler() {
-			//alert("歌名");
-			//播放按鈕圖變||
 			$("#playBtn img").attr("src", "images/audio/pause.png");
-			//播放時playAudioTime換成這首歌名
 			$("#playAudioTime").text(songdata[thismusic].name);
 		}
 
 		function stopPlayHandler() {
-			//暫停時playAudioTime換成這首歌名
 			$("#playAudioTime").text(songdata[thismusic].name);
 		}
 
 		function endedPlay() {
-			//結束時playAudioTime換成這首歌名
 			$("#playAudioTime").text(songdata[thismusic].name);
-			//結束時播放按鈕圖變三角形
 			$("#playBtn img").attr("src", "images/audio/play1.png");
-			//結束時changemuisc播放按鈕圖變三角形
 			$(".changemuisc img").attr("src", "images/audio/play1.png");
-			//不是最後一首結束後播放下一首  與是最後一首結束後變透明
 			if (thismusic != (songdata.length) - 3) {
 				if (audiovisual.ended) {
 					nextBtnHandler();
@@ -959,34 +879,23 @@
 		}
 
 		function timeUpdate() {
-			//滑條=Time屬性的值
 			$("#seekAudioTime").val($("#seekAudioTime").attr("Time"));
-			//Time屬性的值=音樂時間
 			$("#seekAudioTime").attr("Time", audiovisual.currentTime);
-			//滑條最大值=總音樂時間
 			$("#seekAudioTime").attr("max", audiovisual.duration);
-			//顯示時間
 			$("#playAudioTime").text(timeConvert(audiovisual.currentTime)
 				+ " / " + timeConvert(audiovisual.duration));
 		}
 
 		function timeConvert(time) {
-			//時間分數
 			var mins = parseInt(time / 60);
-			//時間秒數
 			var secs = parseInt(time % 60);
-			//時間秒數轉換成00:00
 			if (secs < 10) secs = "0" + secs;
 			return mins + ":" + secs;
 		}
 
 		function volumeUpDownHandler() {
-			//alert($("#volumerange").val());
-			//取音量滑條值
 			var volumesound = $("#volumerange").val();
-			//提示顯示為音量滑條值
 			var title = $('#volumerange').attr('title', volumesound);
-			//音量設定
 			if (volumesound != 0) {
 				$("#volumeBtn img").attr("src", "images/audio/volume.png");
 				audiovisual.muted = false;
@@ -994,7 +903,6 @@
 			} else {
 				$("#volumeBtn img").attr("src", "images/audio/muted.png");
 			}
-			//音樂=音量滑條值
 			audiovisual.volume = volumesound;
 		}
 
