@@ -32,12 +32,15 @@
   </div>
   <!--標題 END-->
   <div id="cardbag">
-    <div class="card">
-      <a href="https://huasonhua.github.io/WEB/"> 第一個專案靜態網頁</a>
+     <a href="https://huasonhua.github.io/WEB/">
+     <div class="card">
+      第一個專案靜態網頁
     </div>
+  </a>
+  <a href="https://github.com/HUASONHUA/WEBOCPJP"> 
     <div class="card">
-      <a href="https://github.com/HUASONHUA/WEBOCPJP"> 第一個專案程式檔案</a>
-    </div>
+      第一個專案程式檔案
+    </div></a>
   
   </div>
 </body>
@@ -118,7 +121,9 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
-
+  #cardbag  a{
+    text-decoration: none;
+  }
   /*card*/
   @property --rotate {
     syntax: "<angle>";
